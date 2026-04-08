@@ -2,23 +2,22 @@ name: Uptime CI
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
-    - cron: "0 * * * *"          # Full check every hour
-  workflow_dispatch:              # Allow manual trigger from GitHub UI
+    - cron: "0 * * * *"
+  workflow_dispatch:
 
 jobs:
   uptime:
     name: Check uptime
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Run uptime check
         uses: upptime/uptime-monitor@master
         with:
-          UPPTIME_GH_APP_PRIVATE_KEY: ${{ secrets.UPPTIME_GH_APP_PRIVATE_KEY }}
+          command: update
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           NOTIFICATION_SLACK: ${{ secrets.NOTIFICATION_SLACK }}
