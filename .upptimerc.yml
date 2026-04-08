@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# NASTAVI Status Page — Upptime Configuration
+# https://upptime.js.org/docs/configuration
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Replace YOUR_GITHUB_USERNAME with your GitHub username or org (e.g. nastavi-co)
+owner: YOUR_GITHUB_USERNAME
+repo: nastavi-status
+
+# ── Monitors ─────────────────────────────────────────────────────────────────
+sites:
+  - name: NASTAVI Platform
+    url: https://nastavi.co
+    icon: https://nastavi.co/favicon.ico
+
+  - name: API & Database
+    url: https://nastavi.co/api/health
+    expectedStatusCodes:
+      - 200
+    # 503 from our health endpoint means database or storage is degraded
+
+  - name: Artist Dashboard
+    url: https://nastavi.co/dashboard
+    expectedStatusCodes:
+      - 200
+      - 302  # Redirects to login when unauthenticated — still means the app is up
+
+  - name: Marketplace
+    url: https://nastavi.co/marketplace
+
+  - name: Pricing
+    url: https://nastavi.co/pricing
+
+# ── Status website ────────────────────────────────────────────────────────────
+status-website:
+  # Custom domain — point a CNAME record for status.nastavi.co → YOUR_GITHUB_USERNAME.github.io
+  cname: status.nastavi.co
+  name: NASTAVI Status
+  logoUrl: https://nastavi.co/images/nova-logo.png
+  theme: dark
+  navbar:
+    - title: NASTAVI
+      href: https://nastavi.co
+    - title: Support
+      href: https://nastavi.co/help
+
+# ── Notifications ─────────────────────────────────────────────────────────────
+# Uncomment the ones you want. Secrets are stored in the GitHub repo settings.
+notifications:
+  # Slack — add NOTIFICATION_SLACK secret to repo settings
+  # - provider: slack
+  #   channel: "#alerts"
+
+  # Email — add NOTIFICATION_EMAIL secret (comma-separated addresses)
+  # - provider: email
+
+  # SMS via Twilio — add NOTIFICATION_TWILIO_* secrets
+  # - provider: twilio
+
+# ── Commit messages ───────────────────────────────────────────────────────────
+i18n:
+  activeIncidents: Active Incidents
+  allSystemsOperational: All systems operational

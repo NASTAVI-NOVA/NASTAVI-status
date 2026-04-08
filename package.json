@@ -1,0 +1,14 @@
+{
+  "name": "@nastavi/status",
+  "version": "1.0.0",
+  "description": "NASTAVI uptime monitoring and status page",
+  "scripts": {
+    "update": "upptime update",
+    "graphs": "upptime graphs",
+    "response-time": "upptime response-time",
+    "site": "upptime site"
+  },
+  "dependencies": {
+    "@upptime/upptime": "^1.0.0"
+  }
+}

@@ -1,0 +1,21 @@
+name: Generate Graphs
+on:
+  schedule:
+    - cron: "0 0 * * *"          # Daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  graphs:
+    name: Generate graphs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Generate graphs
+        uses: upptime/uptime-monitor@master
+        with:
+          UPPTIME_GH_APP_PRIVATE_KEY: ${{ secrets.UPPTIME_GH_APP_PRIVATE_KEY }}
+          command: graphs
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
