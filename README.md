@@ -33,4 +33,4 @@ Optional notification secrets:
 
 ## DNS
 
-Point a CNAME record for `status.nastavi.co` to `YOUR_GITHUB_USERNAME.github.io`.
+Point a CNAME record for `status.nastavi.co` to `nastavi-nova.github.io`.

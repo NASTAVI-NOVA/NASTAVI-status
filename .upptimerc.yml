@@ -4,7 +4,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 # Replace YOUR_GITHUB_USERNAME with your GitHub username or org (e.g. nastavi-co)
-owner: YOUR_GITHUB_USERNAME
+owner: nastavi-nova
 repo: nastavi-status
 
 # ── Monitors ─────────────────────────────────────────────────────────────────
@@ -35,6 +35,7 @@ sites:
 status-website:
   # Custom domain — point a CNAME record for status.nastavi.co → YOUR_GITHUB_USERNAME.github.io
   cname: status.nastavi.co
+  # GitHub Pages URL (before custom domain is set up): https://nastavi-nova.github.io/nastavi-status
   name: NASTAVI Status
   logoUrl: https://nastavi.co/images/nova-logo.png
   theme: dark
